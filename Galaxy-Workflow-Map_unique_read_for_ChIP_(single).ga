@@ -1,0 +1,160 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "comments": [],
+    "format-version": "0.1",
+    "name": "Map_unique_read_for_ChIP (single)",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [],
+            "label": null,
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 4.5354149488017015,
+                "top": 0
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null, \"collection_type\": \"list\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "44853fad-9bf4-45ba-bfd8-b30b783f9581",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "fasta refgen"
+                }
+            ],
+            "label": "fasta refgen",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 156.41629826983575
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": null}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "83ac24a0-9cc2-431d-83cf-4cb14f9b7e95",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.4.5+galaxy0",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "library|input_1": {
+                    "id": 0,
+                    "output_name": "output"
+                },
+                "reference_genome|own_file": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Bowtie2",
+                    "name": "library"
+                },
+                {
+                    "description": "runtime parameter for tool Bowtie2",
+                    "name": "reference_genome"
+                }
+            ],
+            "label": null,
+            "name": "Bowtie2",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 287.3509361890361,
+                "top": 18.841453552246094
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.4.5+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "d5ceb9f3c25b",
+                "name": "bowtie2",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"analysis_type\": {\"analysis_type_selector\": \"full\", \"__current_case__\": 1, \"input_options\": {\"input_options_selector\": \"no\", \"__current_case__\": 1}, \"alignment_options\": {\"alignment_options_selector\": \"yes\", \"__current_case__\": 0, \"N\": \"0\", \"L\": \"22\", \"i\": \"S,1,1.15\", \"n_ceil\": \"L,0,0.15\", \"dpad\": \"15\", \"gbar\": \"4\", \"ignore_quals\": false, \"nofw\": false, \"norc\": false, \"no_1mm_upfront\": false, \"align_mode\": {\"align_mode_selector\": \"end-to-end\", \"__current_case__\": 0, \"score_min_ete\": \"L,-0.6,-0.6\"}}, \"scoring_options\": {\"scoring_options_selector\": \"no\", \"__current_case__\": 1}, \"reporting_options\": {\"reporting_options_selector\": \"k\", \"__current_case__\": 1, \"k\": \"2\"}, \"effort_options\": {\"effort_options_selector\": \"no\", \"__current_case__\": 1}, \"other_options\": {\"other_options_selector\": \"no\", \"__current_case__\": 1}}, \"library\": {\"type\": \"single\", \"__current_case__\": 0, \"input_1\": {\"__class__\": \"ConnectedValue\"}, \"unaligned_file\": false, \"aligned_file\": false}, \"reference_genome\": {\"source\": \"history\", \"__current_case__\": 1, \"own_file\": {\"__class__\": \"ConnectedValue\"}}, \"rg\": {\"rg_selector\": \"do_not_set\", \"__current_case__\": 3}, \"sam_options\": {\"sam_options_selector\": \"no\", \"__current_case__\": 1}, \"save_mapping_stats\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.4.5+galaxy0",
+            "type": "tool",
+            "uuid": "518be7e3-68c6-41d3-a772-7492d612801a",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/artbio/sambamba/sambamba_sample_or_filter/0.6",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "input": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": "unique ",
+            "name": "Sample, Slice or Filter BAM",
+            "outputs": [
+                {
+                    "name": "outfile",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 552.5097233476347,
+                "top": 25.965326008341066
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutfile": {
+                    "action_arguments": {
+                        "newname": "unique ${Condition}"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "outfile"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/artbio/sambamba/sambamba_sample_or_filter/0.6",
+            "tool_shed_repository": {
+                "changeset_revision": "de833cc76a8e",
+                "name": "sambamba",
+                "owner": "artbio",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"format\": \"bam\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"sambamba_options\": {\"selector\": \"filter\", \"__current_case__\": 0, \"query\": \"[XS] == null\", \"region\": null}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.6",
+            "type": "tool",
+            "uuid": "a30c21ff-ac69-47dc-94ab-cda93e43409f",
+            "when": null,
+            "workflow_outputs": []
+        }
+    },
+    "tags": [],
+    "uuid": "1d8ed8ad-c1b2-4f12-aa1f-4c750fa00b22",
+    "version": 2
+}
