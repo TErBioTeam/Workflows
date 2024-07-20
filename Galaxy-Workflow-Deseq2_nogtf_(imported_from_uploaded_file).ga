@@ -1,0 +1,656 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "comments": [],
+    "format-version": "0.1",
+    "name": "Deseq2_nogtf (imported from uploaded file)",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Condition1(ctrl)"
+                }
+            ],
+            "label": "Condition1(ctrl)",
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 0
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": \"\", \"collection_type\": \"list\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "c384b882-634e-4df7-8a6c-4883c04ced71",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Condition 2 (test)"
+                }
+            ],
+            "label": "Condition 2 (test)",
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 111.14584350585938,
+                "top": 180.55208587646484
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": \"\", \"collection_type\": \"list\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "ab01dc1f-bbb8-470f-829b-5d6f45c4164c",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 2,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "reference genome"
+                }
+            ],
+            "label": "reference genome",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 53.94792175292969,
+                "top": 307.7395935058594
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": \"\"}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "a4afd6f3-5a24-4d47-bc20-4748a48a276b",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie_wrappers/bowtie_wrapper/1.2.0",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "refGenomeSource|ownFile": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "singlePaired|sInput1": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map with Bowtie for Illumina",
+                    "name": "refGenomeSource"
+                },
+                {
+                    "description": "runtime parameter for tool Map with Bowtie for Illumina",
+                    "name": "singlePaired"
+                }
+            ],
+            "label": null,
+            "name": "Map with Bowtie for Illumina",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "sam"
+                }
+            ],
+            "position": {
+                "left": 624.7961144967846,
+                "top": 45.59802399096245
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie_wrappers/bowtie_wrapper/1.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b46e7d48076a",
+                "name": "bowtie_wrappers",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"refGenomeSource\": {\"genomeSource\": \"history\", \"__current_case__\": 1, \"ownFile\": {\"__class__\": \"ConnectedValue\"}, \"indexParams\": {\"indexSettings\": \"indexPreSet\", \"__current_case__\": 0}}, \"save_mapping_stats\": false, \"singlePaired\": {\"sPaired\": \"single\", \"__current_case__\": 0, \"sInput1\": {\"__class__\": \"ConnectedValue\"}, \"sParams\": {\"sSettingsType\": \"preSet\", \"__current_case__\": 0}}, \"suppressHeader\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2.0",
+            "type": "tool",
+            "uuid": "42aa9180-106c-4ff2-9387-047c68166492",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie_wrappers/bowtie_wrapper/1.2.0",
+            "errors": null,
+            "id": 4,
+            "input_connections": {
+                "refGenomeSource|ownFile": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "singlePaired|sInput1": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map with Bowtie for Illumina",
+                    "name": "refGenomeSource"
+                },
+                {
+                    "description": "runtime parameter for tool Map with Bowtie for Illumina",
+                    "name": "singlePaired"
+                }
+            ],
+            "label": null,
+            "name": "Map with Bowtie for Illumina",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "sam"
+                }
+            ],
+            "position": {
+                "left": 576.6458740234375,
+                "top": 886
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie_wrappers/bowtie_wrapper/1.2.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b46e7d48076a",
+                "name": "bowtie_wrappers",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"refGenomeSource\": {\"genomeSource\": \"history\", \"__current_case__\": 1, \"ownFile\": {\"__class__\": \"ConnectedValue\"}, \"indexParams\": {\"indexSettings\": \"indexPreSet\", \"__current_case__\": 0}}, \"save_mapping_stats\": false, \"singlePaired\": {\"sPaired\": \"single\", \"__current_case__\": 0, \"sInput1\": {\"__class__\": \"ConnectedValue\"}, \"sParams\": {\"sSettingsType\": \"preSet\", \"__current_case__\": 0}}, \"suppressHeader\": false, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.2.0",
+            "type": "tool",
+            "uuid": "c12951fd-69e9-4731-ae25-9b3d455ca334",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "5": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/2.1.2",
+            "errors": null,
+            "id": 5,
+            "input_connections": {
+                "addref_cond|ref": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "input": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SAM-to-BAM",
+                    "name": "addref_cond"
+                },
+                {
+                    "description": "runtime parameter for tool SAM-to-BAM",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "SAM-to-BAM",
+            "outputs": [
+                {
+                    "name": "output1",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 923.6193116316757,
+                "top": 232.8831397339317
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput1": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output1"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/2.1.2",
+            "tool_shed_repository": {
+                "changeset_revision": "9bd1568619cd",
+                "name": "sam_to_bam",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"addref_cond\": {\"addref_select\": \"history\", \"__current_case__\": 0, \"ref\": {\"__class__\": \"RuntimeValue\"}}, \"input\": {\"__class__\": \"RuntimeValue\"}, \"source\": {\"__current_case__\": 1, \"index_source\": \"history\", \"input1\": {\"__class__\": \"ConnectedValue\"}, \"ref_file\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.1.2",
+            "type": "tool",
+            "uuid": "280ac66f-b46a-4011-9a21-51d8d07645de",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "6": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/2.1.2",
+            "errors": null,
+            "id": 6,
+            "input_connections": {
+                "addref_cond|ref": {
+                    "id": 2,
+                    "output_name": "output"
+                },
+                "input": {
+                    "id": 4,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SAM-to-BAM",
+                    "name": "addref_cond"
+                },
+                {
+                    "description": "runtime parameter for tool SAM-to-BAM",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "SAM-to-BAM",
+            "outputs": [
+                {
+                    "name": "output1",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "left": 948.2975680501088,
+                "top": 739.5316428745228
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput1": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output1"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/sam_to_bam/sam_to_bam/2.1.2",
+            "tool_shed_repository": {
+                "changeset_revision": "9bd1568619cd",
+                "name": "sam_to_bam",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"addref_cond\": {\"addref_select\": \"history\", \"__current_case__\": 0, \"ref\": {\"__class__\": \"RuntimeValue\"}}, \"input\": {\"__class__\": \"RuntimeValue\"}, \"source\": {\"__current_case__\": 1, \"index_source\": \"history\", \"input1\": {\"__class__\": \"ConnectedValue\"}, \"ref_file\": {\"__class__\": \"ConnectedValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.1.2",
+            "type": "tool",
+            "uuid": "0081c0f0-6448-4864-969f-2effc5b2e9b5",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtool_filter2/samtool_filter2/1.8+galaxy1",
+            "errors": null,
+            "id": 7,
+            "input_connections": {
+                "input1": {
+                    "id": 5,
+                    "output_name": "output1"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter SAM or BAM, output SAM or BAM",
+                    "name": "bed_file"
+                }
+            ],
+            "label": null,
+            "name": "Filter SAM or BAM, output SAM or BAM",
+            "outputs": [
+                {
+                    "name": "output1",
+                    "type": "sam"
+                }
+            ],
+            "position": {
+                "left": 1299.479248046875,
+                "top": 372.25
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtool_filter2/samtool_filter2/1.8+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "649a225999a5",
+                "name": "samtool_filter2",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"bed_file\": {\"__class__\": \"RuntimeValue\"}, \"flag\": {\"filter\": \"yes\", \"__current_case__\": 1, \"reqBits\": null, \"skipBits\": [\"0x0004\"]}, \"header\": \"-h\", \"input1\": {\"__class__\": \"ConnectedValue\"}, \"library\": \"\", \"mapq\": null, \"outputtype\": \"bam\", \"possibly_select_inverse\": false, \"read_group\": \"\", \"regions\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8+galaxy1",
+            "type": "tool",
+            "uuid": "76dc3c38-ef1f-4bb9-944a-5eb7995d2db9",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output1",
+                    "uuid": "235a3e81-6297-4625-936c-eb74677a3808"
+                }
+            ]
+        },
+        "8": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtool_filter2/samtool_filter2/1.8+galaxy1",
+            "errors": null,
+            "id": 8,
+            "input_connections": {
+                "input1": {
+                    "id": 6,
+                    "output_name": "output1"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter SAM or BAM, output SAM or BAM",
+                    "name": "bed_file"
+                }
+            ],
+            "label": null,
+            "name": "Filter SAM or BAM, output SAM or BAM",
+            "outputs": [
+                {
+                    "name": "output1",
+                    "type": "sam"
+                }
+            ],
+            "position": {
+                "left": 1412.322998046875,
+                "top": 1075.0208740234375
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtool_filter2/samtool_filter2/1.8+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "649a225999a5",
+                "name": "samtool_filter2",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"bed_file\": {\"__class__\": \"RuntimeValue\"}, \"flag\": {\"filter\": \"yes\", \"__current_case__\": 1, \"reqBits\": null, \"skipBits\": [\"0x0004\"]}, \"header\": \"-h\", \"input1\": {\"__class__\": \"ConnectedValue\"}, \"library\": \"\", \"mapq\": null, \"outputtype\": \"bam\", \"possibly_select_inverse\": false, \"read_group\": \"\", \"regions\": \"\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.8+galaxy1",
+            "type": "tool",
+            "uuid": "e25bb532-4dea-4a48-925f-5c5e8a383396",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output1",
+                    "uuid": "dbca5768-2547-4748-8107-fc0cfedd1fba"
+                }
+            ]
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/2.0.5",
+            "errors": null,
+            "id": 9,
+            "input_connections": {
+                "input": {
+                    "id": 7,
+                    "output_name": "output1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Samtools idxstats",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1701.1458740234375,
+                "top": 423.85418701171875
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/2.0.5",
+            "tool_shed_repository": {
+                "changeset_revision": "fa5d3e61e429",
+                "name": "samtools_idxstats",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.0.5",
+            "type": "tool",
+            "uuid": "06c7d1dd-8bce-43e1-a88f-8cce393bb1c7",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "Samtools idxstats on input dataset(s)",
+                    "output_name": "output",
+                    "uuid": "8c4a4a7d-af3c-4dec-b498-e71e9b04af68"
+                }
+            ]
+        },
+        "10": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/2.0.5",
+            "errors": null,
+            "id": 10,
+            "input_connections": {
+                "input": {
+                    "id": 8,
+                    "output_name": "output1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Samtools idxstats",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1730.2708740234375,
+                "top": 1101.3541870117188
+            },
+            "post_job_actions": {
+                "HideDatasetActionoutput": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_idxstats/samtools_idxstats/2.0.5",
+            "tool_shed_repository": {
+                "changeset_revision": "fa5d3e61e429",
+                "name": "samtools_idxstats",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.0.5",
+            "type": "tool",
+            "uuid": "3d1de225-73e3-4a7e-a6f6-73d6799234e8",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "11": {
+            "annotation": "",
+            "content_id": "Cut1",
+            "errors": null,
+            "id": 11,
+            "input_connections": {
+                "input": {
+                    "id": 9,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 2025.010498046875,
+                "top": 457.35418701171875
+            },
+            "post_job_actions": {},
+            "tool_id": "Cut1",
+            "tool_state": "{\"columnList\": \"c1,c3\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "1d59e3d0-13d0-4299-a403-6cd2643ff171",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "out_file1",
+                    "uuid": "c7b72094-3eff-4aad-8571-c20b81525377"
+                }
+            ]
+        },
+        "12": {
+            "annotation": "",
+            "content_id": "Cut1",
+            "errors": null,
+            "id": 12,
+            "input_connections": {
+                "input": {
+                    "id": 10,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 2066.14599609375,
+                "top": 1051.4791870117188
+            },
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {},
+                    "action_type": "HideDatasetAction",
+                    "output_name": "out_file1"
+                }
+            },
+            "tool_id": "Cut1",
+            "tool_state": "{\"columnList\": \"c1,c3\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "aa378df2-c948-4aa2-b564-95394b661dad",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "13": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/deseq2/deseq2/2.11.40.8+galaxy0",
+            "errors": null,
+            "id": 13,
+            "input_connections": {
+                "select_data|rep_factorName_0|rep_factorLevel_0|countsFile": {
+                    "id": 12,
+                    "output_name": "out_file1"
+                },
+                "select_data|rep_factorName_0|rep_factorLevel_1|countsFile": {
+                    "id": 11,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool DESeq2",
+                    "name": "batch_factors"
+                }
+            ],
+            "label": null,
+            "name": "DESeq2",
+            "outputs": [
+                {
+                    "name": "deseq_out",
+                    "type": "tabular"
+                },
+                {
+                    "name": "plots",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 2470.55224609375,
+                "top": 263.4166717529297
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/deseq2/deseq2/2.11.40.8+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "9a882d108833",
+                "name": "deseq2",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"advanced_options\": {\"esf_cond\": {\"esf\": \"\", \"__current_case__\": 0}, \"fit_type\": \"1\", \"outlier_replace_off\": false, \"outlier_filter_off\": false, \"auto_mean_filter_off\": false, \"prefilter_conditional\": {\"prefilter\": \"\", \"__current_case__\": 1}, \"use_beta_priors\": false}, \"batch_factors\": {\"__class__\": \"RuntimeValue\"}, \"header\": true, \"output_options\": {\"output_selector\": [\"pdf\"], \"alpha_ma\": \"0.1\"}, \"select_data\": {\"how\": \"datasets_per_level\", \"__current_case__\": 1, \"rep_factorName\": [{\"__index__\": 0, \"factorName\": \"FactorName\", \"rep_factorLevel\": [{\"__index__\": 0, \"factorLevel\": \"Mutant\", \"countsFile\": {\"__class__\": \"ConnectedValue\"}}, {\"__index__\": 1, \"factorLevel\": \"Control\", \"countsFile\": {\"__class__\": \"ConnectedValue\"}}]}]}, \"tximport\": {\"tximport_selector\": \"count\", \"__current_case__\": 1}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.11.40.8+galaxy0",
+            "type": "tool",
+            "uuid": "034a9226-eca5-4959-9222-0b4341b3c559",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "DESeq2 plots on input dataset(s)",
+                    "output_name": "plots",
+                    "uuid": "353b3de2-4651-47ce-ad42-71549f5260d5"
+                },
+                {
+                    "label": "DESeq2 result file on input dataset(s)",
+                    "output_name": "deseq_out",
+                    "uuid": "9be127d7-8756-4fb0-bb4c-e1aaec69cee0"
+                }
+            ]
+        }
+    },
+    "tags": [],
+    "uuid": "674acab1-4888-4113-9565-cf90aa8365f8",
+    "version": 1
+}
